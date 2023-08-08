@@ -21,6 +21,11 @@ export const styles = StyleSheet.create({
         flex: 1,
         marginRight: 12
     },
+    listEmptyText: {
+        color: "#FFF",
+        fontSize: 14,
+        textAlign: "center"
+    },
     button: {
         width: 56,
         height: 56,
