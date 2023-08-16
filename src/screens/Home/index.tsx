@@ -39,7 +39,7 @@ export function Home() {
             <View style={styles.form}>
                 <TextInput style={styles.input} placeholder='Nome do participante'
                     placeholderTextColor="#6B6B6B"
-                    onChangeText={text => setParticipantName(text)}
+                    onChangeText={setParticipantName}
                     value={participantName}
                 />
 
