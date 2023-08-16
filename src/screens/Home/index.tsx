@@ -1,17 +1,17 @@
 import { Text, TextInput, TouchableOpacity, View, FlatList, Alert } from 'react-native';
 import { styles } from './styles';
 import { Participant } from '../../components/Participant';
+import { useState } from 'react';
+
 
 export function Home() {
 
-    const participants = ['Cleiton', 'Maria', 'Ana', 'Larissa', 'Lucas', 'Fabio', 'João', 'Carlos', 'Jonh', 'Rodrigo']
+    const [participants, setParticipants] = useState(['Cleiton', 'Maria'])
 
     function handleParticipantAdd() {
 
 
-        if (participants.includes("Cleiton")) {
-            return Alert.alert("Participante existe", "Participante já existe com esse nome")
-        }
+        setParticipants([...participants, 'Lari'])
 
     }
 
@@ -51,11 +51,6 @@ export function Home() {
                     <Text style={styles.listEmptyText}> Ninguém chegou no evento ainda ! Caso precise pode adicionar participantes a sua lista</Text>
                 }
             />
-
-
-
-
-
         </View>
     );
 }
