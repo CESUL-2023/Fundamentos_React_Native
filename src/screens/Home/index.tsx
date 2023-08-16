@@ -6,12 +6,18 @@ import { useState } from 'react';
 
 export function Home() {
 
-    const [participants, setParticipants] = useState(['Cleiton', 'Maria'])
+    const [participants, setParticipants] = useState<String[]>([])
+    const [participantName, setParticipantName] = useState('');
 
     function handleParticipantAdd() {
 
 
-        setParticipants([...participants, 'Lari'])
+        if (participants.includes(participantName)) {
+            return Alert.alert('Paticipante encontrado', 'Já existe um participante com esse nome ');
+        }
+
+        setParticipants([...participants, participantName])
+        setParticipantName('')
 
     }
 
@@ -31,7 +37,11 @@ export function Home() {
             <Text style={styles.groupDate} >Terça, 8 de Agosto de 2023.</Text>
 
             <View style={styles.form}>
-                <TextInput style={styles.input} placeholder='Nome do participante' placeholderTextColor="#6B6B6B" />
+                <TextInput style={styles.input} placeholder='Nome do participante'
+                    placeholderTextColor="#6B6B6B"
+                    onChangeText={text => setParticipantName(text)}
+                    value={participantName}
+                />
 
                 <TouchableOpacity style={styles.button} onPress={handleParticipantAdd}>
                     <Text style={styles.buttonText}>
