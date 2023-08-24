@@ -11,7 +11,6 @@ export function Home() {
 
     function handleParticipantAdd() {
 
-
         if (participants.includes(participantName)) {
             return Alert.alert('Paticipante encontrado', 'Já existe um participante com esse nome ');
         }
@@ -21,14 +20,12 @@ export function Home() {
 
     }
 
-    function handleParticipantRemove() {
+    function handleParticipantRemove(name: String) {
 
         Alert.alert("Remover", "Deseja remover o participante ?", [
-            { text: 'Sim', onPress: () => Alert.alert("Deletado") },
+            { text: 'Sim', onPress: () => setParticipants(prevState => prevState.filter(participant => participant !== name)) },
             { text: 'Não', style: 'cancel' }
         ])
-
-        console.log("Você removeu o participante")
     }
 
     return (
@@ -54,7 +51,7 @@ export function Home() {
                 data={participants}
                 keyExtractor={item => item}
                 renderItem={({ item }) => (
-                    <Participant key={item} name={item} onRemove={handleParticipantRemove} />
+                    <Participant key={item} name={item} onRemove={() => handleParticipantRemove(item)} />
                 )}
                 showsVerticalScrollIndicator={false}
                 ListEmptyComponent={() =>
