@@ -37,10 +37,12 @@ export function Home() {
                 <TextInput style={styles.input} placeholder='Nome do participante'
                     placeholderTextColor="#6B6B6B"
                     onChangeText={setParticipantName}
+                    testID='participantName'
                     value={participantName}
                 />
 
-                <TouchableOpacity style={styles.button} onPress={handleParticipantAdd}>
+                <TouchableOpacity style={styles.button} onPress={handleParticipantAdd}
+                    testID='button-save'>
                     <Text style={styles.buttonText}>
                         +
                     </Text>
