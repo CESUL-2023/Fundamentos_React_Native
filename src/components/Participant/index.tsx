@@ -14,7 +14,8 @@ export function Participant(props: Props) {
         <View style={styles.container}>
             <Text style={styles.name}> {props.name}</Text>
 
-            <TouchableOpacity style={styles.button} onPress={props.onRemove}>
+            <TouchableOpacity style={styles.button} onPress={props.onRemove}
+                testID="button-delete">
                 <Text style={styles.buttonText}>
                     -
                 </Text>

@@ -47,19 +47,23 @@ export function Home() {
                         +
                     </Text>
                 </TouchableOpacity>
-            </View>
 
-            <FlatList
-                data={participants}
-                keyExtractor={item => item}
-                renderItem={({ item }) => (
-                    <Participant key={item} name={item} onRemove={() => handleParticipantRemove(item)} />
-                )}
-                showsVerticalScrollIndicator={false}
-                ListEmptyComponent={() =>
-                    <Text style={styles.listEmptyText}> Ninguém chegou no evento ainda ! Caso precise pode adicionar participantes a sua lista</Text>
-                }
-            />
+
+                <FlatList
+                    testID='lista'
+                    data={participants}
+                    keyExtractor={item => item}
+                    renderItem={({ item }) => (
+
+                        <Participant key={item} name={item} onRemove={() => handleParticipantRemove(item)} />
+
+                    )}
+                    showsVerticalScrollIndicator={false}
+                    ListEmptyComponent={() =>
+                        <Text style={styles.listEmptyText}> Ninguém chegou no evento ainda ! Caso precise pode adicionar participantes a sua lista</Text>
+                    }
+                />
+            </View>
         </View>
     );
 }
