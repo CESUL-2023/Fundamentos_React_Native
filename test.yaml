@@ -3,6 +3,7 @@ appId: com.unipar.app
 - openLink: exp://192.168.0.66:8081
 - tapOn:
     id: participantName
-- inputText: "Cleiton Migliorini"
+- inputRandomPersonName
 - tapOn:
     id: button-save
+- hideKeyboard
