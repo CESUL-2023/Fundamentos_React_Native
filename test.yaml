@@ -7,3 +7,5 @@ appId: com.unipar.app
 - tapOn:
     id: button-save
 - hideKeyboard
+
+- assertVisible: "Cleiton Migliorini"
